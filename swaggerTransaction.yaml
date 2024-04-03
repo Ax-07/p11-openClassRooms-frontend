@@ -44,6 +44,8 @@ paths:
           description: "Internal Server Error"
   /transaction/{id}:
     get:
+      security:
+        - Bearer: []
       tags:
         - "transaction"
       summary: "Get transaction by id"
@@ -78,6 +80,8 @@ paths:
         "500":
           description: "Internal Server Error"
     put:
+      security:
+        - Bearer: []
       tags:
         - "transaction"
       summary: "Update description transaction"
