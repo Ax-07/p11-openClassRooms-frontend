@@ -1,5 +1,5 @@
 import logo from "/src/assets/img/argentBankLogo.png";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { logout } from "../app/authSlice";
 import PropTypes from "prop-types";
@@ -7,7 +7,11 @@ import PropTypes from "prop-types";
 export const Navbar = ({isConnected}) => {
 
   const dispatch = useDispatch();
-  const onLogout = () => dispatch(logout());
+  const navigation = useNavigate();
+  const onLogout = () => {
+    dispatch(logout())
+    navigation("/");
+  };
 
   return (
     <nav className="main-nav">
