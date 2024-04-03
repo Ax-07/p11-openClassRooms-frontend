@@ -16,15 +16,12 @@ export const LoginForm = () => {
         const data = Object.fromEntries(formData);
         try {
           const res = await login(data).unwrap();
-          console.log(res);
-
           dispatch(setIsConnected(res.body.token));
           navigate('/user');
         } catch (err) {
           console.log(err);
         }
     }
-
 
   return (
     <form ref={loginFormData} onSubmit={onSubmit}>
