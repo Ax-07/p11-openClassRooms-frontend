@@ -4,7 +4,7 @@ export const Features = () => {
   const featuresData = [
     {
       id: 1,
-      iconSrc: "/src/assets/img/icon-chat.png",
+      iconSrc: "/src/assets/img/icon-chat.webp",
       altText: "Chat Icon",
       title: "You are our #1 priority",
       description:
@@ -12,7 +12,7 @@ export const Features = () => {
     },
     {
       id: 2,
-      iconSrc: "/src/assets/img/icon-money.png",
+      iconSrc: "/src/assets/img/icon-money.webp",
       altText: "Money Icon",
       title: "More savings means higher rates",
       description:
@@ -20,7 +20,7 @@ export const Features = () => {
     },
     {
       id: 3,
-      iconSrc: "/src/assets/img/icon-security.png",
+      iconSrc: "/src/assets/img/icon-security.webp",
       altText: "Security Icon",
       title: "Security you can trust",
       description:
