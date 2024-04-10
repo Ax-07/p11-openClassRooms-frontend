@@ -14,9 +14,10 @@ export const LoginForm = () => {
         e.preventDefault();
         const formData = new FormData(loginFormData.current);
         const data = Object.fromEntries(formData);
+        console.log(data);
         try {
           const res = await login(data).unwrap();
-          dispatch(setIsConnected(res.body.token));
+          dispatch(setIsConnected({ token: res.body.token, rememberMe: data['remember-me'] }));
           navigate('/user');
         } catch (err) {
           console.log(err);
