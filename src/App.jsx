@@ -6,6 +6,7 @@ import { Login } from "./pages/Login";
 import { Footer } from "./layouts/Footer";
 import { User } from "./pages/User";
 import { useSelector } from "react-redux";
+import { Navigate } from "react-router-dom";
 
 function App() {
   const authState = useSelector((state) => state.auth);
@@ -20,7 +21,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
-          {isConnected && <Route path="/user" element={<User token={token} />} />}
+          <Route path="/user" element={isConnected ? <User token={token} /> : <Navigate to="/login" />} />
         </Routes>
       </>
       <Footer />
