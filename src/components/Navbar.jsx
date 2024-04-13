@@ -3,9 +3,10 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { logout } from "../app/authSlice";
 import PropTypes from "prop-types";
+import { useGetUserProfileQuery } from "../services/apis/userApi";
 
-export const Navbar = ({isConnected}) => {
-
+export const Navbar = ({isConnected, token}) => {
+  const {data: user = []} = useGetUserProfileQuery({token: token});
   const dispatch = useDispatch();
   const navigation = useNavigate();
   const onLogout = () => {
@@ -31,8 +32,8 @@ export const Navbar = ({isConnected}) => {
               activeclassname="active"
               to={"/user"}
             >
-              <i className="fa fa-user-circle"></i>{" Tony "}
-              {/* {authState.user.firstName} */}
+              <i className="fa fa-user-circle"></i>
+              {" "}{user.body && user.body.userName}{" "}
             </NavLink>
             <NavLink
               className="main-nav-item"
@@ -59,4 +60,5 @@ export const Navbar = ({isConnected}) => {
 
 Navbar.propTypes = {
   isConnected: PropTypes.bool,
+  token: PropTypes.string
 };

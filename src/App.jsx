@@ -13,10 +13,9 @@ function App() {
   const isConnected = authState.isConnected;
   const token = authState.token;
 
-
   return (
     <>
-      <Navbar isConnected={isConnected}/>
+      <Navbar isConnected={isConnected} token={token}/>
       <>
         <Routes>
           <Route path="/" element={<Home />} />
